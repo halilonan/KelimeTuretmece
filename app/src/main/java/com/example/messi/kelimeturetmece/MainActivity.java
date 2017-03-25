@@ -21,28 +21,30 @@ public class MainActivity extends AppCompatActivity {
         final Button button6 = (Button) findViewById(R.id.button6);
         final Button button7 = (Button) findViewById(R.id.button7);
         final Button button8 = (Button) findViewById(R.id.button8);
+
+
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            if(button2.getText()==null) {
+            if(button2.getText().equals("")) {
                 button2.setText((CharSequence) button9.getText());
             }
-                else if (button3.getText()==" "){
+                else if (button3.getText().equals("")){
                 button3.setText((CharSequence) button9.getText());
             }
-            else if (button4.getText()==null){
+            else if (button4.getText().equals("")){
                 button4.setText((CharSequence) button9.getText());
             }
-            else if (button5.getText()==null){
+            else if (button5.getText().equals("")){
                 button5.setText((CharSequence) button9.getText());
             }
-            else if (button6.getText()==null){
+            else if (button6.getText().equals("")){
                 button6.setText((CharSequence) button9.getText());
             }
-            else if (button7.getText()==" "){
+            else if (button7.getText().equals("")){
                 button7.setText((CharSequence) button9.getText());
             }
-            else if (button8.getText()==" "){
+            else if (button8.getText().equals("")){
                 button8.setText((CharSequence) button9.getText());
             }
             }

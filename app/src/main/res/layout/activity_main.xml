@@ -17,7 +17,7 @@
         android:id="@+id/textView" />
 
     <Button
-        android:text="@android:null"
+        android:text=""
         android:layout_marginTop="77dp"
         android:id="@+id/button2"
         android:layout_height="40dp"
@@ -39,7 +39,7 @@
         android:layout_toEndOf="@+id/button2" />
 
     <Button
-        android:text="Button"
+        android:text=""
         android:id="@+id/button4"
         android:layout_height="40dp"
         android:layout_width="40dp"
@@ -50,7 +50,7 @@
         android:layout_toEndOf="@+id/button3" />
 
     <Button
-        android:text="Button"
+        android:text=""
         android:id="@+id/button5"
         android:layout_height="40dp"
         android:layout_width="40dp"
@@ -61,7 +61,7 @@
         android:layout_toEndOf="@+id/button4" />
 
     <Button
-        android:text="Button"
+        android:text=""
         android:id="@+id/button6"
         android:layout_height="40dp"
         android:layout_width="40dp"
@@ -72,7 +72,7 @@
         android:layout_toEndOf="@+id/button5" />
 
     <Button
-        android:text=" "
+        android:text=""
         android:id="@+id/button7"
         android:layout_height="40dp"
         android:layout_width="40dp"
@@ -83,7 +83,7 @@
         android:layout_toEndOf="@+id/button6" />
 
     <Button
-        android:text="null"
+        android:text=""
         android:id="@+id/button8"
         android:layout_height="40dp"
         android:layout_width="40dp"
