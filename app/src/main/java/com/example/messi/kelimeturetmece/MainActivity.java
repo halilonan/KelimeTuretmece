@@ -1,18 +1,55 @@
 package com.example.messi.kelimeturetmece;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Random;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
+    ImageLoader imageLoader;
+    RequestQueue requestQueue;
+
+    Button button1 = null;
+    Button button2 = null;
+    Button button3 = null;
+    Button button4 = null;
+    Button button5 = null;
+    Button button6 = null;
+    Button button7 = null;
+    Button button8 = null;
+    Button button9 = null;
+    Button button10= null;
+    Button button11= null;
+    Button button12= null;
+    Button button13= null;
+    Button button14= null;
+    Button button15= null;
+    Button button16= null;
+    Button button17= null;
+    Button button18= null;
+    Button button19= null;
+    Button button20= null;
+    Button button21= null;
+    Button button22= null;
+    Button button23= null;
+    Button button24= null;
 
 
     @Override
@@ -22,24 +59,53 @@ public class MainActivity extends AppCompatActivity {
 
         //Toast.makeText(this,randomizeWord("Kelebek"),Toast.LENGTH_LONG).show();
 
-        String word = "kelebek";
+        requestQueue = Volley.newRequestQueue(MainActivity.this);
+        imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
+            @Override
+            public Bitmap getBitmap(String url) {
+                return null;
+            }
 
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+
+            }
+        });
+
+
+
+
+        String word = "KRATOS";
         String randomizedWord = randomizeWord(word);
-
         String[] letters = shuffleWord(randomizedWord);
         showHint(letters);
+        prepareAnswerField(word.length());
 
 
-        final Button button1 = (Button) findViewById(R.id.button1);
-        final Button button2 = (Button) findViewById(R.id.button2);
-        final Button button3 = (Button) findViewById(R.id.button3);
-        final Button button4 = (Button) findViewById(R.id.button4);
-        final Button button5 = (Button) findViewById(R.id.button5);
-        final Button button6 = (Button) findViewById(R.id.button6);
-        final Button button7 = (Button) findViewById(R.id.button7);
-        final Button button8 = (Button) findViewById(R.id.button8);
-        final Button button9 = (Button) findViewById(R.id.button9);
-
+     button1 = (Button) findViewById(R.id.button1);
+     button2 = (Button) findViewById(R.id.button2);
+     button3 = (Button) findViewById(R.id.button3);
+     button4 = (Button) findViewById(R.id.button4);
+     button5 = (Button) findViewById(R.id.button5);
+     button6 = (Button) findViewById(R.id.button6);
+     button7 = (Button) findViewById(R.id.button7);
+     button8 = (Button) findViewById(R.id.button8);
+     button9 = (Button) findViewById(R.id.button9);
+     button10 = (Button) findViewById(R.id.button10);
+     button11 = (Button) findViewById(R.id.button11);
+     button12 = (Button) findViewById(R.id.button12);
+     button13 = (Button) findViewById(R.id.button13);
+     button14 = (Button) findViewById(R.id.button14);
+     button15 = (Button) findViewById(R.id.button15);
+     button16 = (Button) findViewById(R.id.button16);
+     button17 = (Button) findViewById(R.id.button17);
+     button18 = (Button) findViewById(R.id.button18);
+     button19 = (Button) findViewById(R.id.button19);
+     button20 = (Button) findViewById(R.id.button20);
+     button21 = (Button) findViewById(R.id.button21);
+     button22 = (Button) findViewById(R.id.button22);
+     button23 = (Button) findViewById(R.id.button23);
+     button24 = (Button) findViewById(R.id.button24);
 
         button1.setOnClickListener(new View.OnClickListener() {
 
@@ -91,39 +157,112 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        button9.setOnClickListener(onClickListener);
+        button10.setOnClickListener(onClickListener);
+        button11.setOnClickListener(onClickListener);
+        button12.setOnClickListener(onClickListener);
+        button13.setOnClickListener(onClickListener);
+        button14.setOnClickListener(onClickListener);
+        button15.setOnClickListener(onClickListener);
+        button16.setOnClickListener(onClickListener);
+        button17.setOnClickListener(onClickListener);
+        button18.setOnClickListener(onClickListener);
+        button19.setOnClickListener(onClickListener);
+        button20.setOnClickListener(onClickListener);
+        button21.setOnClickListener(onClickListener);
+        button22.setOnClickListener(onClickListener);
+        button23.setOnClickListener(onClickListener);
+        button24.setOnClickListener(onClickListener);
 
-        button9.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {
-            if(button1.getText().equals("")) {
-                button1.setText((CharSequence) button9.getText());
-            }
-            else if (button2.getText().equals("")){
-                button2.setText((CharSequence) button9.getText());
-            }
-            else if (button3.getText().equals("")){
-                button3.setText((CharSequence) button9.getText());
-            }
-            else if (button4.getText().equals("")){
-                button4.setText((CharSequence) button9.getText());
-            }
-            else if (button5.getText().equals("")){
-                button5.setText((CharSequence) button9.getText());
-            }
-            else if (button6.getText().equals("")){
-                button6.setText((CharSequence) button9.getText());
-            }
-            else if (button7.getText().equals("")){
-                button7.setText((CharSequence) button9.getText());
-            }
-            else if (button8.getText().equals("")){
-                button8.setText((CharSequence) button9.getText());
-            }
-            }
-        });
+        NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
+        imageView.setImageUrl("https://vignette2.wikia.nocookie.net/godofwar/images/1/19/Kratos_rendering_concept.jpg",imageLoader);
 
     }
 
+    public void setAnswerLetterForButton(Button btn)
+    {
+        if(button1.getText().equals("")) {
+            button1.setText((CharSequence) btn.getText());
+        }
+        else if (button2.getText().equals("")){
+            button2.setText((CharSequence) btn.getText());
+        }
+        else if (button3.getText().equals("")){
+            button3.setText((CharSequence) btn.getText());
+        }
+        else if (button4.getText().equals("")){
+            button4.setText((CharSequence) btn.getText());
+        }
+        else if (button5.getText().equals("")){
+            button5.setText((CharSequence) btn.getText());
+        }
+        else if (button6.getText().equals("")){
+            button6.setText((CharSequence) btn.getText());
+        }
+        else if (button7.getText().equals("")){
+            button7.setText((CharSequence) btn.getText());
+        }
+        else if (button8.getText().equals("")){
+            button8.setText((CharSequence) btn.getText());
+        }
+
+
+
+    }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        public void onClick(View view) {
+            setAnswerLetterForButton((Button)view);
+
+            checkForAnswer();
+
+        }
+    };
+    public void checkForAnswer(){
+       
+    }
+    public void prepareAnswerField(int length){
+
+        for (int i = 8; i>=length; i--){
+            Button btnHint = null;
+
+            if (i == 0) {
+                btnHint = (Button) findViewById(R.id.button1);
+            } else if (i == 1)
+            {
+                btnHint = (Button) findViewById(R.id.button2);
+            }else if (i == 2)
+            {
+                btnHint = (Button) findViewById(R.id.button3);
+            }else if (i == 3)
+            {
+                btnHint = (Button) findViewById(R.id.button4);
+            }else if (i == 4)
+            {
+                btnHint = (Button) findViewById(R.id.button5);
+            }else if (i == 5)
+            {
+                btnHint = (Button) findViewById(R.id.button6);
+            }else if (i == 6)
+            {
+                btnHint = (Button) findViewById(R.id.button7);
+            }else if (i == 7)
+            {
+                btnHint = (Button) findViewById(R.id.button8);
+            }
+
+            try {
+                btnHint.setVisibility(View.INVISIBLE);
+
+            }catch (Exception e)
+            {
+
+
+            }
+
+        }
+    }
 
     private static final String ALLOWED_CHARACTERS ="qwertyuiopasdfghjklzxcvbnm";
 
@@ -160,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return ar;
     }
+
 
     public void showHint(String[] ar){
 
@@ -227,4 +367,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
 }
