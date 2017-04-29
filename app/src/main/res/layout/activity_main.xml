@@ -13,10 +13,11 @@
         android:layout_height="150dp"
         android:layout_marginLeft="105dp"
         android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         />
     <Button
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:text=""
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -27,7 +28,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button2"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button1" />
 
     <Button
@@ -35,7 +36,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button3"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button2"/>
 
     <Button
@@ -43,7 +44,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button4"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button3"/>
 
     <Button
@@ -51,7 +52,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button5"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button4"/>
 
     <Button
@@ -59,7 +60,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button6"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button5"/>
 
     <Button
@@ -67,7 +68,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button7"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button6"/>
 
     <Button
@@ -75,7 +76,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/button8"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="210dp"
         android:layout_toRightOf="@+id/button7"/>
 
     <Button
@@ -205,6 +206,20 @@
         android:id="@+id/button24"
         android:layout_toRightOf="@+id/button23"
         android:layout_marginTop="320dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_marginTop="23dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:id="@+id/textView"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
+        android:layout_alignRight="@+id/button8"
+        android:layout_alignEnd="@+id/button8" />
 
 
 </RelativeLayout>

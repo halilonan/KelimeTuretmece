@@ -10,21 +10,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
     ImageLoader imageLoader;
     RequestQueue requestQueue;
+    JSONObject[] filteredStudentList;
+    JSONObject[] imageList;
 
     Button button1 = null;
     Button button2 = null;
@@ -51,13 +65,10 @@ public class MainActivity extends AppCompatActivity {
     Button button23= null;
     Button button24= null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Toast.makeText(this,randomizeWord("Kelebek"),Toast.LENGTH_LONG).show();
 
         requestQueue = Volley.newRequestQueue(MainActivity.this);
         imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
@@ -174,9 +185,7 @@ public class MainActivity extends AppCompatActivity {
         button23.setOnClickListener(onClickListener);
         button24.setOnClickListener(onClickListener);
 
-
-        NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
-        imageView.setImageUrl("https://vignette2.wikia.nocookie.net/godofwar/images/1/19/Kratos_rendering_concept.jpg",imageLoader);
+            getData();
 
     }
 
@@ -367,6 +376,73 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public void getData()
+    {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://denemeler.im/medipol/android2/halil/halil.php";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        processData(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue.add(stringRequest);
+    }
+    public void processData(String response)
+    {
+
+        try {
+            JSONArray studentArray = new JSONArray(response);
+
+            JSONObject[] imageList = new JSONObject[studentArray.length()];
+
+            for(int i = 0; i < studentArray.length(); i++)
+            {
+                imageList[i] = studentArray.getJSONObject(i);
+            }
+
+            filteredStudentList = imageList;
+            showData(imageList);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showData(JSONObject[] studentList)
+    {
+
+
+        try {
+
+           String fotoName =  studentList[6].getString("FOTOGRAF");
+            String ipucu =  studentList[6].getString("İPUCU");
+
+
+            NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
+            TextView text = (TextView)findViewById(R.id.textView);
+            text.setText(ipucu);
+
+            imageView.setImageUrl("http://denemeler.im/medipol/android2/halil/"+fotoName,imageLoader);
+
+
+            Toast.makeText(MainActivity.this,fotoName,Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
