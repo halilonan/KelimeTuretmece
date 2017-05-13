@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DBFF37"
-    tools:context="com.example.messi.kelimeturetmece.MainActivity">
+    tools:context="com.example.messi.kelimeturetmece.Main2Activity">
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/image"

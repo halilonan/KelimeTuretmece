@@ -1,6 +1,7 @@
 package com.example.messi.kelimeturetmece;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
     ImageLoader imageLoader;
     RequestQueue requestQueue;
     JSONObject[] filteredmitolojiList;
@@ -60,14 +61,12 @@ public class MainActivity extends AppCompatActivity {
     Button button23= null;
     Button button24= null;
     Button Gbutton = null;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        requestQueue = Volley.newRequestQueue(MainActivity.this);
+        requestQueue = Volley.newRequestQueue(Main2Activity.this);
         imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
             @Override
             public Bitmap getBitmap(String url) {
@@ -79,31 +78,31 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-     Gbutton = (Button) findViewById(R.id.Gbutton);
-     button1 = (Button) findViewById(R.id.button1);
-     button2 = (Button) findViewById(R.id.button2);
-     button3 = (Button) findViewById(R.id.button3);
-     button4 = (Button) findViewById(R.id.button4);
-     button5 = (Button) findViewById(R.id.button5);
-     button6 = (Button) findViewById(R.id.button6);
-     button7 = (Button) findViewById(R.id.button7);
-     button8 = (Button) findViewById(R.id.button8);
-     button9 = (Button) findViewById(R.id.button9);
-     button10 = (Button) findViewById(R.id.button10);
-     button11 = (Button) findViewById(R.id.button11);
-     button12 = (Button) findViewById(R.id.button12);
-     button13 = (Button) findViewById(R.id.button13);
-     button14 = (Button) findViewById(R.id.button14);
-     button15 = (Button) findViewById(R.id.button15);
-     button16 = (Button) findViewById(R.id.button16);
-     button17 = (Button) findViewById(R.id.button17);
-     button18 = (Button) findViewById(R.id.button18);
-     button19 = (Button) findViewById(R.id.button19);
-     button20 = (Button) findViewById(R.id.button20);
-     button21 = (Button) findViewById(R.id.button21);
-     button22 = (Button) findViewById(R.id.button22);
-     button23 = (Button) findViewById(R.id.button23);
-     button24 = (Button) findViewById(R.id.button24);
+        Gbutton = (Button) findViewById(R.id.Gbutton);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+        button11 = (Button) findViewById(R.id.button11);
+        button12 = (Button) findViewById(R.id.button12);
+        button13 = (Button) findViewById(R.id.button13);
+        button14 = (Button) findViewById(R.id.button14);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
+        button17 = (Button) findViewById(R.id.button17);
+        button18 = (Button) findViewById(R.id.button18);
+        button19 = (Button) findViewById(R.id.button19);
+        button20 = (Button) findViewById(R.id.button20);
+        button21 = (Button) findViewById(R.id.button21);
+        button22 = (Button) findViewById(R.id.button22);
+        button23 = (Button) findViewById(R.id.button23);
+        button24 = (Button) findViewById(R.id.button24);
 
         button1.setOnClickListener(new View.OnClickListener() {
 
@@ -154,17 +153,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Gbutton.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 if(karakter.toUpperCase().equals(currentAnswer.toUpperCase())){
 
-                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                    Intent intent = new Intent(Main2Activity.this, MainActivity.class);
                     startActivity(intent);
                 }
                 checkForAnswer();
             }
         });
-
 
         button9.setOnClickListener(onClickListener);
         button10.setOnClickListener(onClickListener);
@@ -183,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         button23.setOnClickListener(onClickListener);
         button24.setOnClickListener(onClickListener);
 
-            getData();
+        getData();
 
     }
 
@@ -239,38 +236,38 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 8; i>=length; i--){
 
-                Button btnHint = null;
+            Button btnHint = null;
 
-                if (i == 0) {
-                    btnHint = (Button) findViewById(R.id.button1);
+            if (i == 0) {
+                btnHint = (Button) findViewById(R.id.button1);
 
-                } else if (i == 1) {
-                    btnHint = (Button) findViewById(R.id.button2);
+            } else if (i == 1) {
+                btnHint = (Button) findViewById(R.id.button2);
 
-                } else if (i == 2) {
-                    btnHint = (Button) findViewById(R.id.button3);
+            } else if (i == 2) {
+                btnHint = (Button) findViewById(R.id.button3);
 
-                } else if (i == 3) {
-                    btnHint = (Button) findViewById(R.id.button4);
+            } else if (i == 3) {
+                btnHint = (Button) findViewById(R.id.button4);
 
-                } else if (i == 4) {
-                    btnHint = (Button) findViewById(R.id.button5);
+            } else if (i == 4) {
+                btnHint = (Button) findViewById(R.id.button5);
 
-                } else if (i == 5) {
-                    btnHint = (Button) findViewById(R.id.button6);
+            } else if (i == 5) {
+                btnHint = (Button) findViewById(R.id.button6);
 
-                } else if (i == 6) {
-                    btnHint = (Button) findViewById(R.id.button7);
+            } else if (i == 6) {
+                btnHint = (Button) findViewById(R.id.button7);
 
-                } else if (i == 7) {
-                    btnHint = (Button) findViewById(R.id.button8);
+            } else if (i == 7) {
+                btnHint = (Button) findViewById(R.id.button8);
 
-                }
+            }
 
-                try {
-                    btnHint.setVisibility(View.INVISIBLE);
+            try {
+                btnHint.setVisibility(View.INVISIBLE);
 
-                } catch (Exception e) {
+            } catch (Exception e) {
 
 
 
@@ -405,31 +402,31 @@ public class MainActivity extends AppCompatActivity {
     public void showData(JSONObject[] mitolojiList)
     {
         try {
-           Random rand = new Random();
-           int  n = rand.nextInt(26) + 0;
+            Random rand = new Random();
+            int  n = rand.nextInt(26) + 0;
 
-           String fotoName =  mitolojiList[n].getString("FOTOGRAF");
-           String ipucu =  mitolojiList[n].getString("İPUCU");
+            String fotoName =  mitolojiList[n].getString("FOTOGRAF");
+            String ipucu =  mitolojiList[n].getString("İPUCU");
             karakter = mitolojiList[n].getString("KARAKTER");
 
 
-           String word = karakter;
-           String randomizedWord = randomizeWord(word);
-           String[] letters = shuffleWord(randomizedWord);
-           showHint(letters);
-           prepareAnswerField(word.length());
+            String word = karakter;
+            String randomizedWord = randomizeWord(word);
+            String[] letters = shuffleWord(randomizedWord);
+            showHint(letters);
+            prepareAnswerField(word.length());
 
-           NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
-           TextView text = (TextView)findViewById(R.id.textView);
-           text.setText(ipucu);
+            NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
+            TextView text = (TextView)findViewById(R.id.textView);
+            text.setText(ipucu);
 
-           imageView.setImageUrl("http://denemeler.im/medipol/android2/halil/"+fotoName,imageLoader);
+            imageView.setImageUrl("http://denemeler.im/medipol/android2/halil/"+fotoName,imageLoader);
 
 
-            Toast.makeText(MainActivity.this,karakter,Toast.LENGTH_SHORT).show();
-            } catch (JSONException e) {
+            Toast.makeText(Main2Activity.this,karakter,Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
             e.printStackTrace();
-              }
+        }
     }
     static String[] shuffleWord(String word)
     {
@@ -446,8 +443,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return ar;
     }
-
-
-
-
 }
+
