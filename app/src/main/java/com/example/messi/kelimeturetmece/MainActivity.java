@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String[] ary  ;
     String currentAnswer = "";
     String karakter;
+    public static int sayac = 0;
 
     Button button1 = null;
     Button button2 = null;
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
     Button button22= null;
     Button button23= null;
     Button button24= null;
-    Button Gbutton = null;
+
+    Button random = null;
 
 
     @Override
@@ -79,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-     Gbutton = (Button) findViewById(R.id.Gbutton);
+
+     random = (Button) findViewById(R.id.random);
      button1 = (Button) findViewById(R.id.button1);
      button2 = (Button) findViewById(R.id.button2);
      button3 = (Button) findViewById(R.id.button3);
@@ -153,17 +156,40 @@ public class MainActivity extends AppCompatActivity {
                 button8.setText("");
             }
         });
-        Gbutton.setOnClickListener(new View.OnClickListener() {
+        random.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                if(karakter.toUpperCase().equals(currentAnswer.toUpperCase())){
-
-                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                    startActivity(intent);
+                if(sayac > 0) {
+                    --sayac;
+                    TextView text2 = (TextView)findViewById(R.id.textView2);
+                    text2.setText("PUAN: "+String.valueOf(sayac));
+                }else{
+                    Toast.makeText(MainActivity.this,"Yetersiz Puan",Toast.LENGTH_SHORT).show();
                 }
-                checkForAnswer();
+                Random rand = new Random();
+                int  c = rand.nextInt(8) + 1;
+                if(c == 1){
+                    button1.setText(currentAnswer);
+                }else if (c == 2){
+                    button2.setText(currentAnswer);
+                }else if (c == 3){
+                    button2.setText(currentAnswer);
+                }else if (c == 4){
+                    button2.setText(currentAnswer);
+                }else if (c == 5){
+                    button2.setText(currentAnswer);
+                }else if (c == 6){
+                    button2.setText(currentAnswer);
+                }else if (c == 7){
+                    button2.setText(currentAnswer);
+                }else if (c == 8){
+                    button2.setText(currentAnswer);
+                }
             }
         });
+
+
+
 
 
         button9.setOnClickListener(onClickListener);
@@ -223,7 +249,12 @@ public class MainActivity extends AppCompatActivity {
         currentAnswer += button7.getText();
         currentAnswer += button8.getText();
 
-
+        if(karakter.toUpperCase().equals(currentAnswer.toUpperCase())){
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            startActivity(intent);
+            sayac++;
+        }
+        checkForAnswer();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -234,8 +265,10 @@ public class MainActivity extends AppCompatActivity {
     public void checkForAnswer(){
 
     }
-    public void prepareAnswerField(int length){
+    public void randomIpucu(){
 
+    }
+    public void prepareAnswerField(int length){
 
         for (int i = 8; i>=length; i--){
 
@@ -422,6 +455,8 @@ public class MainActivity extends AppCompatActivity {
            NetworkImageView imageView = (NetworkImageView)findViewById(R.id.image);
            TextView text = (TextView)findViewById(R.id.textView);
            text.setText(ipucu);
+            TextView text2 = (TextView)findViewById(R.id.textView2);
+            text2.setText("PUAN: "+String.valueOf(sayac));
 
            imageView.setImageUrl("http://denemeler.im/medipol/android2/halil/"+fotoName,imageLoader);
 
