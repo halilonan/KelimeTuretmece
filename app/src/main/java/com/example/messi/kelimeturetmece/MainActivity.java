@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     Button button22= null;
     Button button23= null;
     Button button24= null;
-
     Button random = null;
 
 
@@ -156,35 +155,49 @@ public class MainActivity extends AppCompatActivity {
                 button8.setText("");
             }
         });
+
         random.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                if(sayac > 0) {
-                    --sayac;
-                    TextView text2 = (TextView)findViewById(R.id.textView2);
-                    text2.setText("PUAN: "+String.valueOf(sayac));
-                }else{
-                    Toast.makeText(MainActivity.this,"Yetersiz Puan",Toast.LENGTH_SHORT).show();
-                }
-                Random rand = new Random();
+
+
+                    if (sayac > 0) {
+                        --sayac;
+                        TextView text2 = (TextView) findViewById(R.id.textView2);
+                        text2.setText("PUAN: " + String.valueOf(sayac));
+
+
+                            } else {
+                                Toast.makeText(MainActivity.this, "Yetersiz Puan", Toast.LENGTH_SHORT).show();
+                            }
+
+
+       /*         Random rand = new Random();
                 int  c = rand.nextInt(8) + 1;
                 if(c == 1){
                     button1.setText(currentAnswer);
                 }else if (c == 2){
+
                     button2.setText(currentAnswer);
                 }else if (c == 3){
+
                     button2.setText(currentAnswer);
                 }else if (c == 4){
+
                     button2.setText(currentAnswer);
                 }else if (c == 5){
+
                     button2.setText(currentAnswer);
                 }else if (c == 6){
+
                     button2.setText(currentAnswer);
                 }else if (c == 7){
+
                     button2.setText(currentAnswer);
                 }else if (c == 8){
+
                     button2.setText(currentAnswer);
-                }
+                }*/
             }
         });
 
@@ -239,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
         else if (button8.getText().equals("")){
             button8.setText((CharSequence) btn.getText());
         }
+
         currentAnswer = "";
         currentAnswer += button1.getText();
         currentAnswer += button2.getText();
@@ -249,10 +263,16 @@ public class MainActivity extends AppCompatActivity {
         currentAnswer += button7.getText();
         currentAnswer += button8.getText();
 
+
+
+
         if(karakter.toUpperCase().equals(currentAnswer.toUpperCase())){
+            for(int i = 0; i<karakter.length(); i++){
+                sayac++;
+            }
             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(intent);
-            sayac++;
+
         }
         checkForAnswer();
     }
@@ -443,7 +463,7 @@ public class MainActivity extends AppCompatActivity {
 
            String fotoName =  mitolojiList[n].getString("FOTOGRAF");
            String ipucu =  mitolojiList[n].getString("İPUCU");
-            karakter = mitolojiList[n].getString("KARAKTER");
+           karakter = mitolojiList[n].getString("KARAKTER");
 
 
            String word = karakter;

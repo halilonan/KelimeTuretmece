@@ -246,10 +246,17 @@ public class Main2Activity extends AppCompatActivity {
         currentAnswer += button7.getText();
         currentAnswer += button8.getText();
 
+
+
+
         if(karakter.toUpperCase().equals(currentAnswer.toUpperCase())){
+            for(int i = 0; i<karakter.length(); i++){
+                MainActivity.sayac++;
+            }
+
             Intent intent = new Intent(Main2Activity.this, MainActivity.class);
             startActivity(intent);
-            MainActivity.sayac++;
+
         }
         checkForAnswer();
     }
